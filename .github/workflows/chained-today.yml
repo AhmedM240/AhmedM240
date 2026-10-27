@@ -1,0 +1,30 @@
+# Puts today's Chained puzzle (first letters only) into README.md once a day.
+# Runs a few minutes after Chained's midnight-UTC reset. To try it right away,
+# open the Actions tab, pick "Update today's Chained puzzle", and click "Run workflow".
+
+name: Update today's Chained puzzle
+
+on:
+  schedule:
+    - cron: "7 0 * * *" # 00:07 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Write today's puzzle into README.md
+        run: python3 scripts/chained_today.py
+
+      - name: Commit if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "Today's Chained puzzle" || exit 0
+          git push
