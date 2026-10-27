@@ -61,7 +61,7 @@ A memory diagram learning tool that checks how students draw Python's stack, hea
 </table>
 
 <!-- chained-today:start -->
-Today's chain is up at **[playchained.me](https://playchained.me)**.
+**Today's [Chained](https://playchained.me) · #37** &nbsp; `I` → `C` → `C` → `C` → `W` &nbsp; <sub>5 words, first letters only · [solve it](https://playchained.me)</sub>
 <!-- chained-today:end -->
 
 ## Toolbox
